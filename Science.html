@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Science 101</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header>
+  <h2>Science 101</h2>
+  <div class="header-content">
+    <img src="logo.png" alt="Science 101 Logo" class="logo">
+  </div>
+</header>
+
+<div class="container">
+  <!-- Sidebar with Dropdown -->
+   
+   <div class="sidebar" id="sidebar">
+  <div class="menu-header">
+    <h3>COURSE MENU</h3>
+    <button class="toggle-btn" onclick="toggleMenu()">+</button>
+  </div>
+
+
+    <div class="dropdown">
+      <button class="dropdown-title" onclick="toggleDropdown('dropdown1')"> Welcome</button>
+      <ul class="dropdown-content" id="dropdown1">
+        <li><button class="dropdown-item">▶ Welcome!</button></li>
+      </ul>
+    </div>
+
+    <div class="dropdown">
+  <button class="dropdown-title" onclick="toggleDropdown('dropdown2')"> Biology</button>
+  <ul class="dropdown-content" id="dropdown2">
+    <li><button class="dropdown-item" onclick="loadVideo('intro-bio')">Introduction to Biology</button></li>
+    <li><button class="dropdown-item" onclick="loadVideo('scientific-method')">The Scientific Method</button></li>
+    <li><button class="dropdown-item" onclick="loadVideo('biologists-do')">What Biologists Do</button></li>
+    <li><button class="dropdown-item" onclick="loadVideo('life-organized')">How Life is Organized</button></li>
+    <li><button class="dropdown-item" onclick="showQuiz()">📝 Quiz</button></li>
+  </ul>
+</div>
+
+
+  <div class="dropdown">
+  <button class="dropdown-title" onclick="toggleDropdown('dropdown3')"> Astronomy </button>
+  <ul class="dropdown-content" id="dropdown3">
+    <li><button class="dropdown-item" onclick="loadVideo('intro-astronomy')">Introduction to Astronomy</button></li>
+    <li><button class="dropdown-item" onclick="loadVideo('naked-eye')">Naked Eye Observations</button></li>
+    <li><button class="dropdown-item" onclick="loadVideo('cycles-sky')">Cycles in the Sky</button></li>
+    <li><button class="dropdown-item" onclick="loadVideo('moon-phases')">Moon Phases</button></li>
+    <li><button class="dropdown-item" onclick="showQuiz()">📝 Quiz</button></li>
+  </ul>
+</div>
+
+
+    <div class="dropdown">
+  <button class="dropdown-title" onclick="toggleDropdown('dropdown4')"> Environmental Science</button>
+  <ul class="dropdown-content" id="dropdown4">
+    <li><button class="dropdown-item" onclick="loadVideo('climate-change')">What is Climate Change?</button></li>
+    <li><button class="dropdown-item" onclick="loadVideo('climate-science')">Climate Science</button></li>
+    <li><button class="dropdown-item" onclick="loadVideo('glaciers')">What Are Glaciers</button></li>
+    <li><button class="dropdown-item" onclick="showQuiz()">📝 Quiz</button></li>
+  </ul>
+</div>
+
+    <h3 id="course-menu-map">Contact Us</h3>
+    <div class="dropdown">
+      <button class="dropdown-title" onclick="toggleDropdown('map')"> Location</button>
+      <ul class="dropdown-content" id="map">
+        <li><button class="dropdown-item" onclick="showMap()">Our Location</button></li>
+
+      </ul>
+    </div>
+    
+   <div class="dropdown">
+  <button class="dropdown-title" onclick="toggleDropdown('email')"> Email </button>
+  <ul class="dropdown-content" id="email">
+    <li><button class="dropdown-item">
+      <a href="mailto:lamees2225@hotmail.com" style="text-decoration: none; color: inherit;">Email Us</a>
+    </button></li>
+  </ul>
+</div>
+
+
+  </div>
+
+  <!-- Main Content -->
+  <div class="main-content">
+   <div class="video-section" id="video-section">
+  <p id="video-title" class="video-text">Click a topic from the menu to view the video.</p>
+  <div class="video-wrapper" id="youtube-video-container">
+    <!-- YouTube iframe will appear here -->
+  </div>
+
+
+
+
+    <div id="map-section" style="display: none; margin-top: 20px;">
+  <h3>Our Location</h3>
+  <iframe 
+    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3560.113791485879!2d50.18977856025924!3d26.388763782506768!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3e49efa1229c3e11%3A0x4597260e7abacb0b!2z2KzYp9mF2LnYqSDYp9mE2KXZhdin2YUg2LnYqNiv2KfZhNix2K3ZhdmGINio2YYg2YHZiti12YQgLSDZg9mE2YrYp9iqINin2YTYt9io2YrYqQ!5e1!3m2!1sar!2ssa!4v1751268506445!5m2!1sar!2ssa" 
+    width="100%" 
+    height="400" 
+    style="border:0; border-radius: 10px;" 
+    allowfullscreen="" 
+    loading="lazy">
+  </iframe>
+</div>
+
+
+    <!-- Quiz Section (Hidden by Default) -->
+    <div class="quiz-section" id="quiz-section" style="display: none;">
+      <h3>Quiz: What is Biology?</h3>
+      <form id="quiz-form">
+        <p>1. What is Biology?</p>
+        <label><input type="radio" name="q1" value="A"> A. The study of stars and planets</label><br>
+        <label><input type="radio" name="q1" value="B"> B. The study of living organisms</label><br>
+        <label><input type="radio" name="q1" value="C"> C. The study of chemicals and reactions</label><br>
+
+        <p>2. Who is known as the father of modern biology?</p>
+        <label><input type="radio" name="q2" value="A"> A. Albert Einstein</label><br>
+        <label><input type="radio" name="q2" value="B"> B. Charles Darwin</label><br>
+        <label><input type="radio" name="q2" value="C"> C. Isaac Newton</label><br>
+
+        <button type="button" onclick="submitQuiz()">Submit</button>
+      </form>
+
+      <div id="quiz-result" style="display: none;">
+        <h4>Your score: <span id="score"></span>/2</h4>
+      </div>
+    </div>
+  </div>
+</div>
+<script src="script.js"></script>
+</body>
+</html>

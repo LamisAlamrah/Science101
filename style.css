@@ -1,0 +1,288 @@
+/* General reset and box-sizing */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html, body {
+  font-family: 'Arial', sans-serif;
+  height: 100%;
+  background-color: #f4f4f4;
+}
+
+/* Header Styles */
+header {
+  background-color: #003366;
+  color: white;
+  padding: 20px 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+header h2 {
+  font-size: 2rem;
+  margin: 0;
+}
+
+.logo {
+  width: 50px; /* Adjust logo size */
+  height: auto;
+  object-fit: contain;
+}
+
+/* Container for Sidebar and Content */
+.container {
+  display: flex;
+  min-height: calc(100vh - 100px); /* Subtract header height */
+}
+
+.sidebar {
+  width: 100%;
+  max-height: 1000px; /* تبدأ مفتوحة */
+  background-color: #ffffff;
+  padding: 20px;
+  border-right: 2px solid #ddd;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  transition: max-height 0.4s ease;
+}
+
+.sidebar.collapsed {
+  max-height: 40px; /* هذا يخليها تطبق */
+  padding-bottom: 0;
+  overflow: hidden;
+}
+
+
+
+/* Sidebar Heading */
+.sidebar h3 {
+  font-size: 1.2rem;
+  margin-bottom: 20px;
+  text-align: center;
+  color: #003366;
+  font-weight: bold;
+}
+
+/* Dropdown styles */
+.dropdown {
+  margin-bottom: 10px;
+}
+
+/* Dropdown Title Button */
+.dropdown-title {
+  background-color: #003366;
+  color: white;
+  font-size: 1.1rem;
+  padding: 12px;
+  width: 100%;
+  text-align: left;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+  margin-left: 0; /* Ensure there's no extra margin */
+  display: block; /* Make sure it's block-level for proper width */
+}
+
+.dropdown-title:hover {
+  background-color: #0055a5;
+}
+
+/* Dropdown Content (Sub-items) */
+.dropdown-content {
+  list-style: none;
+  padding-left: 20px; /* Ensure the sub-items are properly indented */
+  margin: 0;
+  display: none;
+}
+
+/* Dropdown Item Styling */
+.dropdown-item {
+  background-color: #f9f9f9;
+  color: #003366;
+  padding: 10px 12px;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+  text-align: left;
+  border-radius: 5px;
+  margin: 5px 0;
+  transition: background-color 0.3s ease;
+}
+
+.dropdown-item:hover {
+  background-color: #d3e1f1;
+}
+
+/* Remove extra indentation or margin for all dropdowns */
+.sidebar .dropdown ul {
+  padding-left: 0; /* Remove extra padding from the ul */
+  margin-left: 0; /* Remove extra margin */
+}
+
+.sidebar .dropdown .dropdown-item {
+  padding-left: 20px; /* Ensure padding is consistent across all items */
+}
+
+/* Make sure no item is too far indented */
+.sidebar .dropdown-title {
+  margin-left: 0; /* Ensures the dropdown title is aligned with the container */
+}
+
+.sidebar .dropdown-content {
+  padding-left: 20px; /* Indent dropdown items consistently */
+}
+
+/* Main Content Section */
+.main-content {
+  flex: 1;
+  padding: 40px;
+  background-color: #ffffff;
+  box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.1);
+  overflow-y: auto;
+}
+
+.video-section {
+  text-align: center;
+}
+
+.video-text {
+  font-size: 1.1rem;
+  font-weight: bold;
+  margin-bottom: 20px;
+  color: #003366;
+}
+
+/* Quiz Section Styling */
+.quiz-section {
+  padding: 20px;
+  background-color: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  display: none;
+  margin-top: 20px;
+}
+
+.quiz-section h3 {
+  font-size: 1.5rem;
+  color: #003366;
+  margin-bottom: 20px;
+}
+
+.quiz-section form {
+  font-size: 1.1rem;
+  margin-bottom: 20px;
+}
+
+.quiz-section label {
+  display: block;
+  margin: 8px 0;
+}
+
+.quiz-section button {
+  background-color: #003366;
+  color: white;
+  padding: 12px 20px;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+  font-size: 1rem;
+}
+
+.quiz-section button:hover {
+  background-color: #0055a5;
+}
+
+#quiz-result {
+  font-size: 1.2rem;
+  font-weight: bold;
+  margin-top: 20px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  header {
+    padding: 20px;
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .container {
+    flex-direction: column;
+  }
+
+  .sidebar {
+    width: 100%;
+    border-right: none;
+    border-bottom: 2px solid #ddd;
+  }
+
+  .main-content {
+    padding: 20px;
+  }
+}
+#course-menu-map {
+  font-size: 1.5rem;
+  margin-top: 20px;  /* Add a gap below */
+  text-align: center;
+  color: #003366;
+  
+}
+.menu-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start; /* بدّل من center إلى flex-start */
+  margin-bottom: 20px;
+  position: relative;
+}
+
+.toggle-btn {
+  background-color: transparent;
+  border: none;
+  font-size: 1.5rem;
+  color: #003366;
+  cursor: pointer;
+  margin-top: -4px; /* ارفع الزر فوق شوي */
+}
+
+
+.sidebar {
+  width: 250px;
+  background-color: #ffffff;
+  padding: 20px;
+  border-right: 2px solid #ddd;
+  box-shadow: 4px 0 6px rgba(0, 0, 0, 0.1);
+  overflow-y: auto;         /* ← هذا يفعّل سكرول عمودي */
+  max-height: calc(100vh - 100px); /* ← يخليه بحدود الشاشة */
+}
+#continue-btn-container {
+  text-align: center;
+  margin-top: 30px;
+}
+.continue-btn {
+  background-color: #003366;
+  color: white;
+  padding: 12px 28px;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+.continue-btn:hover {
+  background-color: #0055a5;
+  transform: translateY(-2px);
+}
+
+
+
+
+
+
+
