@@ -21,17 +21,24 @@ This project was created to demonstrate front-end development skills using basic
 ## File Structure
 
 /Science101
-│
-├── Science.html   
-├── style.css      
-├── script.js      
-└── logo.png 
+
+├── index.html
+
+├── style.css            
+
+├── script.js            
+
+└── images/
+    logo.png         
+
+
+
 
 ## Technologies Used
 
 - HTML5
 - CSS3
-- JavaScript (Vanilla)
+- JavaScript
 - GitHub Pages (for hosting)
 
 ## Purpose
